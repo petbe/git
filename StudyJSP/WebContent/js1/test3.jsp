@@ -8,7 +8,7 @@
 
 <script type="text/javascript">
 //함수 fun1()
-//10+20=(10+20)   
+//10+20=(10+20)    
 function fun1(){
 	alert(10+"+"+20+"="+(10+20));
 	alert(10+"-"+20+"="+(10-20));
@@ -29,24 +29,35 @@ function fun3(a,b){
 	return a+b;
 }
 function fun4(a,b){
-	if(a>b)
-		return a;
-	else
-		return b;
+	var m;
+	if(a>b){
+		 m=a;
+	}else{
+		=b;
+	}
+	return m;
 }
 function fun5(a){
+	var m="";
 	if(a%2==0)
-		return "짝수";
+		m="짝수";
 	else
-		return "홀수";
+		m="홀수";
+	
+	return m;
+	
 }
+
 function fun6(a){
+	var m="";
 	if(a==0)
-		return 0;
+		m="0" 0;
 	else if(a>0)
-		return "양수";
+		m="양수";
 	else
-		return "음수";
+		m="음수";
+	
+	return m;
 }
 </script>
 
