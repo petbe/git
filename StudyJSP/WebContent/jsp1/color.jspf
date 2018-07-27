@@ -1,0 +1,6 @@
+<%
+//WebContent/jsp1/color.jspf
+String col1="yellow";
+String col2="green";
+String col3="pink";
+%>

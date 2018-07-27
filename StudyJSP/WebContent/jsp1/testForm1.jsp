@@ -9,7 +9,7 @@
 <body>
 <!--WebContent/jsp1/testForm1.jsp  -->
   
-<form action="testPro1.jsp" methos="get" name="fr1">
+<form action="testPro1.jsp" method="post" name="fr1"> <!--post는 한글 처리를 따로해줘야한다. testPro1에서  -->
 이름: <input type="text" name="name">
 나이: <input type="text" name="age">
 <input type="submit" value="전송">

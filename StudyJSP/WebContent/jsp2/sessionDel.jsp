@@ -7,15 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% 
-//post 방식  request 한글처리
- request.setCharacterEncoding("utf-8");
-%>
- <% String name = request.getParameter("name");
- 	//String a=; 
- 	int age=Integer.parseInt(request.getParameter("age"));
- 	%>
-이름:<% out.println(name); %>
-나이:<% out.println(age+5); %>
+<h1>WebContent/jsp2/sessionDel.jsp</h1>
 </body>
 </html>
