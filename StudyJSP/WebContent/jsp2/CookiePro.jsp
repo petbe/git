@@ -7,11 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/jsp2/sessionInval.jsp</h1>
-<%session.invalidate(); %>
+<h1>WebContent/jsp2/CookiePro.jsp</h1>
+<% Cookie language = new Cookie("lang",request.getParameter("lang"));
+	language.setMaxAge(30*60);
+	response.addCookie(language);
+%>
 <script type="text/javascript">
-	alert("세션값 전체삭제");
-	location.href="sessiontest.jsp";
+alert("선택");
+location.href="CookieForm.jsp";
+
 </script>
+
 </body>
 </html>

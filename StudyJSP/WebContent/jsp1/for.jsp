@@ -21,6 +21,8 @@ arr[0]=java<br>
 arr[1]=jsp<br>
 arr[2]=web<br>
 arr[3]=db<br>
+
+
 <table border="1">
 <tr><td>번호</td><td>과목</td></tr>
 <tr><td>0</td><td>java</td></tr>

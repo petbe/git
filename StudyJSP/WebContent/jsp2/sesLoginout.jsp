@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/jsp2/sessionInval.jsp</h1>
+<h1>WenContent/jsp2/sesLoginout.jsp</h1>
+
 <%session.invalidate(); %>
 <script type="text/javascript">
-	alert("세션값 전체삭제");
-	location.href="sessiontest.jsp";
-</script>
+alert("로그아웃");
+location.href="sesLoginMain.jsp";
+	</script>
 </body>
 </html>

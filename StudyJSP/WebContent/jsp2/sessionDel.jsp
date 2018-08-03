@@ -8,5 +8,13 @@
 </head>
 <body>
 <h1>WebContent/jsp2/sessionDel.jsp</h1>
+<%
+//세션에서 하나의 이름 삭제   
+session.removeAttribute("sname");
+%>
+<script type="text/javascript">
+	alert("세션값 하나삭제");
+	location.href="sessiontest.jsp";
+</script>
 </body>
 </html>

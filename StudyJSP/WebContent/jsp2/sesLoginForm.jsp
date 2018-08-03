@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/jsp2/sessionInval.jsp</h1>
-<%session.invalidate(); %>
-<script type="text/javascript">
-	alert("세션값 전체삭제");
-	location.href="sessiontest.jsp";
-</script>
+<%=session.getId() %>
+<h1>WenContent/jsp2/sesLoginForm.jsp</h1>
+<form action="sesLoginPro.jsp" method="post">
+아이디:<input type="text" name="id"><br>
+비밀번호:<input type="password" name="pass"><br>
+<input type="submit" value="로그인">
+
+</form>
 </body>
 </html>
