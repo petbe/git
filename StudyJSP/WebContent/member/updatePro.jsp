@@ -1,3 +1,6 @@
+<%@page import="member.MemberBean"%>
+<%@page import="member.MemberDAO"%>
+
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -11,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/jspdb2/updatePro.jsp</h1>
+<h1>WebContent/member/updatePro.jsp</h1>
 <%request.setCharacterEncoding("utf-8");
   
   String reId=request.getParameter("id");
@@ -21,28 +24,21 @@
   String reGender=request.getParameter("gender");
   String reEmail=request.getParameter("email");
   
-  Class.forName("com.mysql.jdbc.Driver");
-  String dbUrl="jdbc:mysql://localhost:3306/jspdb2";
-  String dbUser="jspid";
-  String dbPass="jsppass";
-  Connection con = DriverManager.getConnection(dbUrl,dbUser,dbPass);
-  String sql="select pass from member where id=?";
-  PreparedStatement pstmt = con.prepareStatement(sql);
-  pstmt.setString(1,reId);
-  ResultSet rs = pstmt.executeQuery();
-  rs.next();
-  String pass=rs.getString("pass");
   
-  if(rePass.equals(pass)){
-	  String sql2="update member set name=?,age=?,gender=?,email=? where id=?";
-	  PreparedStatement pstmt2 = con.prepareStatement(sql2);
-  		pstmt2.setString(1,reName);
-  		pstmt2.setInt(2,reAge);
-  		pstmt2.setString(3,reGender);
-  		pstmt2.setString(4,reEmail);
-  		pstmt2.setString(5,reId);
-  		pstmt2.executeUpdate();
-  		pstmt2.close();
+  MemberBean b= new MemberBean();
+  b.setId(reId);
+  b.setPass(rePass);
+  b.setName(reName);
+  b.setAge(reAge);
+  b.setGender(reGender);
+  b.setEmail(reEmail); 
+  MemberDAO d= new MemberDAO();
+  
+  boolean flag=d.updateMember(b);
+
+  
+  if(flag){
+	
   		
   		%><script type="text/javascript">
   		alert("수정완료");
@@ -56,9 +52,9 @@
   }
   
  
-  rs.close();
+  /* rs.close();
   pstmt.close();
-  con.close();
+  con.close(); */
   
 %>
 </body>

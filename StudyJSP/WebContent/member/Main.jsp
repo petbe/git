@@ -9,14 +9,15 @@
 <body>
 <%
 
-String id=(String)session.getAttribute("id");
+ String id=(String)session.getAttribute("id");
 if(id==null){
 	response.sendRedirect("loginForm.jsp");
-} 
+}  
+
 
 %>
 
-<h1>WebContent/jspdb2/Main.jsp</h1>
+<h1>WebContent/member/Main.jsp</h1>
 <%=id %>님이 로그인 하셨습니다.
 <%
 //세션 으로 가져온 값은 오브젝트형이라 (String)으로 다운캐스트 

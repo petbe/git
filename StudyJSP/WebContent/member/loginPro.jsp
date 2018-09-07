@@ -1,3 +1,4 @@
+<%@page import="member.MemberDAO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -18,44 +19,44 @@ request.setCharacterEncoding("utf-8");
 String id=request.getParameter("loId");
 String pass=request.getParameter("loPass");
 
-Class.forName("com.mysql.jdbc.Driver");
-String dbUrl="jdbc:mysql://localhost:3306/jspdb2";
-String dbUser="jspid";
-String dbPass="jsppass";
-Connection con = DriverManager.getConnection(dbUrl,dbUser,dbPass);
-String sql="select * from member where id=?";
-PreparedStatement pstmt = con.prepareStatement(sql);
-pstmt.setString(1,id);
-ResultSet rs = pstmt.executeQuery();
+MemberDAO d = new MemberDAO();
+
+int logck;
+logck=d.userCheck(id,pass);
+
+
+
 //out.println(rs.getString("id"));
-if(rs.next()){
+if(logck==1){
 	out.println("아이디있음");
 	//비밀번호 비교
-	if(rs.getString("pass").equals(pass)){
+	
 		out.println("비밀번호 있음");
 		//세션값 생성 "id",id
 		session.setAttribute("id", id);
 		response.sendRedirect("Main.jsp");
-	}else{
+	
+}
+
+if(logck==0){
 		out.println("비밀번호 없음");
 		//response.sendRedirect("loginForm.jsp");
 		//메시지-비밀번호 없음 , 뒤로이동
-		%><script type="text/javascript">
+		%><script>
 		alert("비밀번호 없음");
 		history.back();</script><% 
-	}
-}else{
+}	
+
+if(logck==-1){
 	out.println("아이디없음");
 	//response.sendRedirect("loginForm.jsp");
 	//메시지-아이디없음 , 뒤로이동
 		%><script type="text/javascript">
 		alert("아이디없음");
 		location.href="loginForm.jsp";</script><% 
+
 }
 
-rs.close();
-pstmt.close();
-con.close();
 %>
 
 </body>

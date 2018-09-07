@@ -7,7 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WebContent/jspdb2/loginForm.jsp</h1>
+<script type="text/javascript">
+
+
+</script>
+
+<h1>WebContent/member/loginForm.jsp</h1>
 ※회원목록은 admin으로 로그인해야 볼 수 있음.
 <form action="loginPro.jsp" method="post">
 아이디:<input type="text" name="loId"><br>

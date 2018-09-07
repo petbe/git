@@ -1,5 +1,8 @@
 
 
+
+<%@page import="member.MemberBean"%>
+<%@page import="member.MemberDAO"%>
 <%@page import="java.sql.Timestamp"%>
 
 <%@page import="java.sql.ResultSet"%>
@@ -29,13 +32,16 @@ PreparedStatement pstmt = con.prepareStatement(sql);
 pstmt.setString(1,id);
 ResultSet rs = pstmt.executeQuery();
  */
-String myId="";
+ MemberDAO d = new MemberDAO();
+MemberBean b=d.getMember(id);
+
+/* String myId="";
 String myPass="";
 String myName="";
 Timestamp date=null;
 int age=0;
 String gender="";
-String email="";
+String email=""; */
 /* if(rs.next()){
 	 myId=rs.getString("id");
 	 myPass=rs.getString("pass");
@@ -46,20 +52,20 @@ String email="";
 	 email = rs.getString("email");
 } */
 %>
-<h1>WebContent/jspdb2/info.jsp</h1>
+<h1>WebContent/member/info.jsp</h1>
 <h3>회원정보조회</h3>
 <table border="1">
 <tr><th colspan="2">회원정보 조회페이지</th></tr>
-<tr><th>아이디:</th><td><%=myId %></td></tr>
-<tr><th>비밀번호:</th><td><%=myPass %></td></tr>
-<tr><th>이름:</th><td><%=myName %></td></tr>
-<tr><th>나이:</th><td><%=age %></td></tr>
-<tr><th>성별:</th><td><%=gender %></td></tr>
-<tr><th>이메일:</th><td><%=email %></td></tr>
-<tr><th>가입날짜:</th><td><%=date %></td></tr>
+<tr><th>아이디:</th><td><%=b.getId() %></td></tr>
+<tr><th>비밀번호:</th><td><%=b.getPass() %></td></tr>
+<tr><th>이름:</th><td><%=b.getName() %></td></tr>
+<tr><th>나이:</th><td><%=b.getAge() %></td></tr>
+<tr><th>성별:</th><td><%=b.getGender() %></td></tr>
+<tr><th>이메일:</th><td><%=b.getEmail() %></td></tr>
+<tr><th>가입날짜:</th><td><%=b.getReg_date() %></td></tr>
 </table>
 
-<a href="Main.jsp">메인가기</a>
+<a href="Main.jsp">메인가기</a>ssss
 <%-- <%rs.close();
 pstmt.close();
 con.close();

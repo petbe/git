@@ -18,6 +18,11 @@ request.setCharacterEncoding("utf-8");
 String id=request.getParameter("id");
 String pass=request.getParameter("pass");
 String name=request.getParameter("name");
+int age=Integer.parseInt(request.getParameter("age"));
+if(request.getParameter("age").equals(null)){
+	age=0;}
+String gender=request.getParameter("gender");
+String email=request.getParameter("email");
 Timestamp reg_date=new Timestamp(System.currentTimeMillis());
 
 Class.forName("com.mysql.jdbc.Driver");
@@ -26,13 +31,15 @@ String dbUser="jspid";
 String dbPass="jsppass";
 Connection con = DriverManager.getConnection(dbUrl,dbUser,dbPass);
 
-String sql="insert into member values(?,?,?,?)";
+String sql="insert into member values(?,?,?,?,?,?,?)";
 PreparedStatement pstmt = con.prepareStatement(sql);
 pstmt.setString(1,id);
 pstmt.setString(2,pass);
 pstmt.setString(3,name);
 pstmt.setTimestamp(4,reg_date );
-
+pstmt.setInt(5,age);
+pstmt.setString(6,gender);
+pstmt.setString(7,email);
 pstmt.executeUpdate();
 %>
 <script type="text/javascript">
